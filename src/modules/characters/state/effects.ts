@@ -14,8 +14,9 @@ export function* handleFetch(): Generator {
 
 	try {
 		const response: any = yield API.get(query);
-		const characters: ICharacters['data'] = response.results;
-		yield put(actions.fetchSuccess(characters));
+		const data: any = response.data;
+		const payload = { count: data.total, rows: data.results };
+		yield put(actions.fetchSuccess(payload));
 
 	} catch (error) {
 		if (error instanceof Error) {

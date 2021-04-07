@@ -4,7 +4,7 @@ import { IApplicationState } from '../../../state/ducks';
 import { fetch } from '../state/actions';
 
 const Characters: React.FC = () => {
-  const characters = useSelector((state: IApplicationState) => state.characters.data);
+  const characters = useSelector((state: IApplicationState) => state.characters.data.rows);
   const loading = useSelector((state: IApplicationState) => state.characters.loading);
   const error = useSelector((state: IApplicationState) => state.characters.error);
   const dispatch = useDispatch();

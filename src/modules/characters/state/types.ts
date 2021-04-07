@@ -26,7 +26,7 @@ export interface ICharacter {
 }
 
 export interface ICharacters {
-  data: Array<ICharacter>
+  data: { count: Number, rows: Array<ICharacter> }
   loading: boolean
   error: string
 }
