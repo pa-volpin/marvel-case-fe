@@ -9,11 +9,13 @@ const Characters: React.FC = () => {
   const error = useSelector((state: IApplicationState) => state.characters.error);
   const dispatch = useDispatch();
 
-  const fetchCharacters = useCallback(() => dispatch(fetch()), [dispatch]);
+  const fetchCharacters = useCallback(() => dispatch(fetch()), []);
 
   useEffect(() => {
     fetchCharacters()
-  }, [fetchCharacters]);
+  }, []);
+
+  console.log(characters)
 
   return (
     <div>
