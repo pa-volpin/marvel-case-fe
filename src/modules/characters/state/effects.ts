@@ -1,4 +1,4 @@
-import { ICharacters } from './types';
+// import { ICharacters } from './types';
 // import { IApplicationState } from '../../../../state/ducks/index';
 import { put } from 'redux-saga/effects'
 import API from '../../../axios/api'

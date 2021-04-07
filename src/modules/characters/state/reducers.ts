@@ -1,7 +1,7 @@
 import { types, ICharacters, IAction } from './types';
 
 const initialState: ICharacters  = {
-  data: [],
+  data: { count: 0, rows: [] },
   error: '',
   loading: false
 };
