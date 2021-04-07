@@ -14,7 +14,7 @@ export function* handleFetch(): Generator {
 
 	try {
 		const response: any = yield API.get(query);
-		const data: any = response.data;
+		const data: any = response.data.data;
 		console.log('RETORNO API', response)
 		console.log('RETORNO API DATA', data)
 
