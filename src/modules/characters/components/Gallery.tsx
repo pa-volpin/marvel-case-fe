@@ -2,9 +2,9 @@ import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IApplicationState } from '../../../state/ducks';
 import { fetch } from '../state/actions';
-import Gallery from '../components/Gallery';
+import Card from '../components/Card';
 
-const Characters: React.FC = () => {
+const Gallery: React.FC = () => {
   const characters = useSelector((state: IApplicationState) => state.characters.data.rows);
   const loading = useSelector((state: IApplicationState) => state.characters.loading);
   const error = useSelector((state: IApplicationState) => state.characters.error);
@@ -16,13 +16,16 @@ const Characters: React.FC = () => {
     fetchCharacters()
   }, []);
 
-  console.log(characters)
-
   return (
     <div>
-      <Gallery />
+      {
+        !loading && characters.map((character, index) =>
+          <Card key={index} character={character} />) 
+      }
+      { loading && <p>Carregando</p> }
+      { error !== '' && !loading && <p>{ `Houve Erro ${error}` }</p> }
     </div>
   );
 };
 
-export default Characters;
+export default Gallery;

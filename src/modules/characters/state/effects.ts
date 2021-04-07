@@ -15,11 +15,8 @@ export function* handleFetch(): Generator {
 	try {
 		const response: any = yield API.get(query);
 		const data: any = response.data.data;
-		console.log('RETORNO API', response)
-		console.log('RETORNO API DATA', data)
 
 		const payload = { count: data.total, rows: data.results };
-		console.log('RETORNO API PAYLOAD', payload)
 
 		yield put(actions.fetchSuccess(payload));
 
