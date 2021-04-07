@@ -5,11 +5,11 @@ interface props {
   character: ICharacter
 }
 const Gallery: React.FC<props> = ({ character }: props) => {
-  const { thumbnail: { path }, name, description } = character;
+  const { thumbnail: { path, extension }, name, description } = character;
 
   return (
     <div className="bg-white rounded-md border-black flex flex-col">
-      <img src={path} alt={name} />
+      <img src={`${path}.${extension}`} alt={name} />
       <p>{`Name: ${name}`}</p>
       <p>{`Description: ${description}`}</p>
     </div>
