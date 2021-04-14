@@ -1,4 +1,4 @@
-# Bem vindo ao app [***Marvel Comics Volpin***](https://pa-volpin.github.io/app-receitas/#/)
+# Bem vindo ao app [***Marvel Comics Volpin***](https://marvel-app-volpin.herokuapp.com/)
 
 A aplicação batizada como Marvel Comics Volpin foi desenvolvida de acordo com o desafio proposto pela Stone, com o objetivo de colocar em evidência, as habilidades técnicas no desenvolvimento de software web.
 
@@ -6,7 +6,7 @@ O objetivo do projeto foi desenvolver uma aplicação, onde a partir do consumo 
 
 Acesse o app Marvel Comics Volpin pelo link abaixo:
 
-https://pa-volpin.github.io/app-receitas/#/
+https://marvel-app-volpin.herokuapp.com/
 
 ## Como iniciar o uso da aplicação ?
 
