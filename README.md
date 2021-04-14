@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Bem vindo ao app [***Marvel Comics Volpin***](https://pa-volpin.github.io/app-receitas/#/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A aplicação batizada como Marvel Comics Volpin foi desenvolvida de acordo com o desafio proposto pela Stone, com o objetivo de colocar em evidência, as habilidades técnicas no desenvolvimento de software web.
 
-## Available Scripts
+O objetivo do projeto foi desenvolver uma aplicação, onde a partir do consumo da API da Marvel o usuário tem acesso ao conteúdo do universo Marvel (personagens, histórias, séries, entre outros). Compondo o defasio e experiência do usuário, há o desenvolvimento de uma solução back-end que possibilita o cadastro de novos usuários e adiciona a funcionalidade de armazenar os personagens favoritos do usuário.
 
-In the project directory, you can run:
+Acesse o app Marvel Comics Volpin pelo link abaixo:
 
-### `npm start`
+https://pa-volpin.github.io/app-receitas/#/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Como iniciar o uso da aplicação ?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clique no link acima
+2. Faça o cadastro com seus dados
+3. Confirme seu email
+4. Faça seu login e acesse todas as funcionalidades 
 
-### `npm test`
+## Principais elementos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+O projeto foi composto dos seguintes elementos:
 
-### `npm run build`
+- Login
+- Cadastro
+- Recuperação de senha
+- Perfil do usuário
+- Barra de navegação
+- Galerias de cards da Marvel
+- Galerias de cards com filtros, barra de pesquisa e paginação
+- Pagina de detalhes de personagem
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### OBS: 
+- As Galerias de cards são compostas por filtros, barra de pesquisa e paginação para melhor usabilidade
+- Os cards de personagem são compostos por icones de "like" e "ver detalhes"
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Arquitetura do projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+O projeto em primeiro nível foi dividido em:
 
-### `npm run eject`
+- [***Front-end***](https://github.com/pa-volpin/marvel-case-fe)
+- [***Back-end***](https://github.com/pa-volpin/marvel-case-be)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Arquitetura e Tecnologias Front-end
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Arquitetura modular (motivado pelo conceito de micro front-ends)
+- ReactJS
+- Taiwind CSS
+- Redux Saga
+- React Router DOM
+- Axios
+- Typescript
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Arquitetura e Tecnologias Back-end
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Arquitetura MSC (Model, Service, Control)
+- Banco de dados relacional MYSQL
+- ORM Sequelize
+- NodeJS
+- Express
+- Bcrypt
+- Bodymen
+- Rescue
+- Javascript
+- Aws SDK
 
-## Learn More
+## Operação
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- AWS EC2 (hospedagem da API e banco de dados)
+- AWS RDS (serviço do banco de dados relacional)
+- AWS SES (serviço de mailing para recuperação de senha/ confirmação de email)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Metodologias utilizadas
 
-### Code Splitting
+- Kanban
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Ferramentas de desenvolvimento
 
-### Analyzing the Bundle Size
+- Git e GitHub para versionamento
+- VSCode como editor
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Conclusão
 
-### Making a Progressive Web App
+O projeto foi concluído com as funcionalidades exigidas e alguns serviços adicionais que foram pensados no intuito de garantir mais segurança e melhor experiência do usuário.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Aprendizados:
+- Aprendizado de novas funcinalidades
+- Novas experiências com serviços de hospedagem
+- Otimização e gestão do tempo
+- Organização de tarefas para cumprir prazo/requisitos
 
-### Advanced Configuration
+### Pontos a melhorar futuramente
+- Construção de testes
+- Maior componentização da página de detalhes
+- Otimização de imagem  para reduzir tamanho
+- Semântica HTML
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Desenvolvedores
 
-### Deployment
+- Paulo Afonso Volpin ([perfil](https://github.com/pa-volpin))
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Repositório base do desafio (Stone)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://gist.github.com/jeansflores/5f4746ce1129e27da6f451069780ccf7
