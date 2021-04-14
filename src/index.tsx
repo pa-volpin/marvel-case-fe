@@ -1,21 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import configureStore from './state';
 import './index.css';
 import App from './App';
+import history from './state/History';
+import FloatBox from './design-system/components/FloatBox/FloatBox';
+
 
 const initialState = (window as any).initialReduxState
 const store = configureStore(initialState)
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Router history={history}>
     <Provider store={store}>
       <App />
+      <FloatBox />
     </Provider>
-  </BrowserRouter>,
+  </Router>,
   document.getElementById('root')
 );
 
