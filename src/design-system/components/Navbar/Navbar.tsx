@@ -59,8 +59,8 @@ const Navbar: React.FC<RouteComponentProps> = (props) => {
     setDropdown((prev) => !prev);
   };
 
-  const handleDropdownClick = () => {
-    if (dropdown) setDropdown(false);
+  const handleDropdownConditional = () => {
+    if (document.documentElement.clientWidth > 768) handleDropdown();
   };
 
   const { location: { pathname } } = props;
@@ -109,8 +109,8 @@ const Navbar: React.FC<RouteComponentProps> = (props) => {
             </Link>
           ))}
           <div className="flex flex-col space-y-2"
-          onMouseEnter={() => handleDropdown()}
-          onMouseLeave={() => handleDropdown()}
+            onMouseEnter={() => handleDropdownConditional()}
+            onMouseLeave={() => handleDropdownConditional()}
           >
             <button
               className={ `${ path.includes('favorites') ? 'bg-secondary' : ''}

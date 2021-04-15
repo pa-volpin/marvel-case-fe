@@ -20,6 +20,7 @@ const fetchSuccess = (state: IFavoritesCharacters, payload: IFavoritesCharacters
 
 const fetchError = (state: IFavoritesCharacters, payload: IFavoritesCharacters['error']) => ({
   ...state,
+  data: initialState.data,
   error: payload,
   loading: false
 });
