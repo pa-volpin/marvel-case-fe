@@ -59,6 +59,10 @@ const Navbar: React.FC<RouteComponentProps> = (props) => {
     setDropdown((prev) => !prev);
   };
 
+  const handleDropdownClick = () => {
+    if (dropdown) setDropdown(false);
+  };
+
   const { location: { pathname } } = props;
   const path = pathname;
 
@@ -120,6 +124,7 @@ const Navbar: React.FC<RouteComponentProps> = (props) => {
               <Link
                 key={ index }
                 to={ link.path }
+                onClick={() => handleDropdownClick()}
                 className={ ` ${ path === link.path ? 'bg-secondary' : ''}
                   text-xl text-center p-5 block hover:bg-white hover:text-primary` }
               >
