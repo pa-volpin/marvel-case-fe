@@ -21,6 +21,9 @@ export const types = {
   RESET_PASSWORD: '@@resetPassword/RESET_PASSWORD',
   RESET_PASSWORD_ERROR: '@@resetPassword/RESET_PASSWORD_ERROR',
   RESET_PASSWORD_SUCCESS: '@@resetPassword/RESET_PASSWORD_SUCCESS',
+  UNSUBSCRIBE: '@@unsubscribe/UNSUBSCRIBE',
+  UNSUBSCRIBE_ERROR: '@@unsubscribe/UNSUBSCRIBE_ERROR',
+  UNSUBSCRIBE_SUCCESS: '@@unsubscribe/UNSUBSCRIBE_SUCCESS',
 }
 
 export interface IAuth {
@@ -48,6 +51,11 @@ export interface IPayloadPostResetPassword {
   password: string
 }
 
+export interface IPayloadPostUnsubscribe {
+  email: string
+  password: string
+}
+
 export interface IAction {
   type: string
   payload: IAuth['error']
@@ -56,4 +64,5 @@ export interface IAction {
     & IPayloadPostRegister
     & IPayloadPostForgotPassword
     & IPayloadPostResetPassword
+    & IPayloadPostUnsubscribe
 }

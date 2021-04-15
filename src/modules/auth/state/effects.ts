@@ -184,3 +184,30 @@ export function* handleResetPassword(action: IAction): Generator {
 		yield put(openFloatBox({ message, redirect, tag }));
 	}
 }
+
+export function* handleUnsubscribe(action: IAction): Generator {
+	try {
+		const payload: IPayloadPostLogin = action.payload;
+		const response: any = yield API.post('/unsubscribe', payload);
+		const data: any = response.data;
+
+		yield put(actions.unsubscribeSuccess());
+
+		let message = 'Your account was unsubscribed with success!'
+		const tag = 'success';
+		const redirect = '/';
+		yield put(openFloatBox({ message, tag, redirect }));
+		
+	} catch (error) {
+		if (error instanceof Error) {
+			yield put(actions.loginError(error.message))
+		} else {
+			yield put(actions.loginError('An unknown error occured.'))
+		}
+
+		let message = 'Sorry, we are working to establish the service as soon as possible.'
+		if(error.response?.status === 403) message = 'Email or password incorrect.';
+		const tag = 'error';
+		yield put(openFloatBox({ message, tag }));
+	}
+}

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Loading from '../../../../design-system/components/Loading/Loading';
 import { IApplicationState } from '../../../../state/ducks';
-import { login, clearState } from '../../state/actions';
+import { unsubscribe, clearState } from '../../state/actions';
 import { IPayloadPostLogin } from '../../state/types';
 
 const Forms: React.FC = () => {
@@ -13,7 +13,7 @@ const Forms: React.FC = () => {
   const [errorForms, setErrorForms] = useState({ email: true, password: true });
   const [showError, setShowError] = useState(false);
 
-  const handleLogin = useCallback((payload: IPayloadPostLogin) => dispatch(login(payload)), []);
+  const handleUnsubscribe = useCallback((payload: IPayloadPostLogin) => dispatch(unsubscribe(payload)), []);
 
   const clearAuthState = useCallback(() => dispatch(clearState()), []);
   
@@ -31,7 +31,7 @@ const Forms: React.FC = () => {
   const submitForms = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (errorForms.email || errorForms.password) return setShowError(true);
-    handleLogin(forms);
+    handleUnsubscribe(forms);
   };
 
   useEffect(() => {
@@ -79,24 +79,16 @@ const Forms: React.FC = () => {
         <div className="flex flex-col space-y-4">
           <input
             type="submit"
-            value="Sign In"
+            value="Unsubscribe"
             className={`rounded-md focus:outline-none ${(forms.email !== '' && forms.password !== '') ? 'bg-secondary' : 'bg-gray-300'} text-lg p-2 cursor-pointer`}
             disabled={forms.email === '' || forms.password === ''}
           />
           <Link
-            to="/register"
+            to="/login"
             className="rounded-md focus:outline-none bg-transparent border-secondary border-2 hover:bg-secondary text-lg p-2 text-center"
           >
-            Sign Up
+            Cancel
           </Link>
-          <div className="flex flex-col">
-            <Link to="/forgotpassword" className="pb-2 text-md text-white">
-              Forgot your password ?
-            </Link>
-            <Link to="/unsubscribe" className="pb-2 text-md text-white">
-              Delete account
-            </Link>
-          </div>
         </div>
       </form>
       }

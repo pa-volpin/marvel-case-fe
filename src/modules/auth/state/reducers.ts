@@ -6,7 +6,7 @@ const initialState: IAuth  = {
   loading: false,
 };
 
-// LOGIN
+// CLEAR STATE
 const clearState = () => initialState;
 
 // LOGIN
@@ -68,6 +68,15 @@ const resetPasswordSuccess = (state: IAuth) => ({ ...state, loading: false });
 const resetPasswordError = (state: IAuth, payload: IAuth['error']) =>
   ({ ...state, error: payload, loading: false });
 
+// UNSUBSCRIBE
+// LOGIN
+const unsubscribe = (state: IAuth) => ({ ...state, loading: true });
+
+const unsubscribeSuccess = (state: IAuth) =>
+  ({ ...state, loading: false });
+
+const unsubscribeError = (state: IAuth, payload: IAuth['error']) =>
+  ({ ...state, error: payload, loading: false });
 
 const authReducer = (state = initialState, action: IAction) => {
   const type = action.type;
@@ -118,6 +127,12 @@ const authReducer = (state = initialState, action: IAction) => {
       return resetPasswordSuccess(state);
     case types.RESET_PASSWORD_ERROR:
       return resetPasswordError(state, payload);
+    case types.UNSUBSCRIBE:
+      return unsubscribe(state);
+    case types.UNSUBSCRIBE_SUCCESS:
+      return unsubscribeSuccess(state);
+    case types.UNSUBSCRIBE_ERROR:
+      return unsubscribeError(state, payload);
     default:
       return state
   }

@@ -7,7 +7,8 @@ import {
 	handleRegisterConfirmation,
 	handleForgotPassword,
 	handleForgotPasswordConfirmation,
-	handleResetPassword
+	handleResetPassword,
+	handleUnsubscribe
 } from './effects';
 
 function* watchFetchRequest(): Generator {
@@ -18,8 +19,7 @@ function* watchFetchRequest(): Generator {
 	yield takeLatest(types.FORGOT_PASSWORD, handleForgotPassword)
 	yield takeLatest(types.FORGOT_PASSWORD_CONFIRMATION, handleForgotPasswordConfirmation)
 	yield takeLatest(types.RESET_PASSWORD, handleResetPassword)
-
-
+	yield takeLatest(types.UNSUBSCRIBE, handleUnsubscribe)
 }
 
 export default function* authSaga() {

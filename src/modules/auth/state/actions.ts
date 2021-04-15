@@ -1,4 +1,4 @@
-import { types, IAuth, IPayloadPostLogin, IPayloadPostRegister, IPayloadPostForgotPassword, IPayloadPostResetPassword } from './types';
+import { types, IAuth, IPayloadPostLogin, IPayloadPostRegister, IPayloadPostForgotPassword, IPayloadPostResetPassword, IPayloadPostUnsubscribe } from './types';
 
 // CLEAR STATE
 const clearState = () => ({ type: types.CLEAR_STATE });
@@ -64,6 +64,16 @@ const resetPasswordSuccess = () =>
 const resetPasswordError = (payload: IAuth['error']) =>
   ({ type: types.RESET_PASSWORD_ERROR, payload });
 
+// UNSUBSCRIBE
+const unsubscribe = (payload: IPayloadPostUnsubscribe) =>
+  ({ type: types.UNSUBSCRIBE , payload });
+
+const unsubscribeSuccess = () =>
+  ({ type: types.UNSUBSCRIBE_SUCCESS });
+
+const unsubscribeError = (payload: IAuth['error']) =>
+  ({ type: types.UNSUBSCRIBE_ERROR, payload });
+
 export {
   login,
   loginError,
@@ -86,5 +96,8 @@ export {
   resetPassword,
   resetPasswordError,
   resetPasswordSuccess,
-  clearState
+  clearState,
+  unsubscribe,
+  unsubscribeSuccess,
+  unsubscribeError
 }

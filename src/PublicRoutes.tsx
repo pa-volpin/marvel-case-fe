@@ -9,6 +9,7 @@ import forgotPasswordConfirmation from './modules/auth/pages/ForgotPasswordConfi
 import withSessionPrivate from './withSessionPrivate';
 import withSessionPublic from './withSessionPublic';
 import RegisterConfirmation from './modules/auth/pages/RegisterConfirmation';
+import Unsubscribe from './modules/auth/pages/Unsubscribe';
 
 const PublicRoutes: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const PublicRoutes: React.FC = () => {
       <Route path="/forgotpassword/:id" component={ forgotPasswordConfirmation } />
       <Route path="/forgotpassword" component={ withSessionPublic(ForgotPassword) } />
       <Route path="/resetpassword" component={ ResetPassword } />
+      <Route path="/unsubscribe" component={ withSessionPublic(Unsubscribe) } />
       <Route path="/" component={ withSessionPrivate(Main) } />
     </Switch>
   );
