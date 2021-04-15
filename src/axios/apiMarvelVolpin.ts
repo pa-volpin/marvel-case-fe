@@ -11,6 +11,8 @@ api.interceptors.request.use((config: any) => {
       config.headers.Authorization = 'Bearer ' + token
     }
 
+    config.https = true;
+
     return config
   } catch (err) {
     console.log('err', err)
