@@ -188,7 +188,7 @@ export function* handleResetPassword(action: IAction): Generator {
 export function* handleUnsubscribe(action: IAction): Generator {
 	try {
 		const payload: IPayloadPostLogin = action.payload;
-		const response: any = yield API.post('/unsubscribe', payload);
+		const response: any = yield API.post('/users/unsubscribe', payload);
 		const data: any = response.data;
 
 		yield put(actions.unsubscribeSuccess());
