@@ -109,8 +109,8 @@ const Navbar: React.FC<RouteComponentProps> = (props) => {
             </Link>
           ))}
           <div className="flex flex-col space-y-2"
-            onMouseEnter={() => handleDropdownConditional()}
-            onMouseLeave={() => handleDropdownConditional()}
+            onMouseEnter={() => setDropdown(true)}
+            onMouseLeave={() => setDropdown(false)}
           >
             <button
               className={ `${ path.includes('favorites') ? 'bg-secondary' : ''}
@@ -124,7 +124,7 @@ const Navbar: React.FC<RouteComponentProps> = (props) => {
               <Link
                 key={ index }
                 to={ link.path }
-                onClick={() => handleDropdown()}
+                onClick={() => setDropdown(false)}
                 className={ ` ${ path === link.path ? 'bg-secondary' : ''}
                   text-xl text-center p-5 block hover:bg-white hover:text-primary` }
               >
