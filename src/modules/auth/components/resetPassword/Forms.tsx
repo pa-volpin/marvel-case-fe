@@ -6,9 +6,11 @@ import { resetPassword, clearState } from '../../state/actions';
 import { IPayloadPostResetPassword } from '../../state/types';
 import history from '../../../../state/History';
 import Loading from '../../../../design-system/components/Loading/Loading';
+import { FaEye } from 'react-icons/fa';
 
 const Forms: React.FC = () => {
   const dispatch = useDispatch();
+  const [seePassword, setSeePassword] = useState(false);
   const [forms, setForms] = useState({ email: '', password: '' });
   const [errorForms, setErrorForms] = useState({ email: false, password: true });
   const [showError, setShowError] = useState(false);
@@ -54,7 +56,7 @@ const Forms: React.FC = () => {
               <input
                 id="input-email"
                 name="email"
-                type="text"
+                type="email"
                 value={forms.email}
                 className="rounded-md focus:outline-none p-2 text-primary"
                 disabled
@@ -65,15 +67,18 @@ const Forms: React.FC = () => {
             </div>
             <div className="flex flex-col space-x-1">
               <label htmlFor="input-password">Password</label>
-              <input
-                id="input-password"
-                name="password"
-                type="text"
-                value={forms.password}
-                onChange={handleChange}
-                className="rounded-md focus:outline-none p-2 text-primary"
-                onKeyUp={() => setShowError(false)}
-              />
+              <div className="flex space-x-2 items-center justify-between bg-white pr-2 rounded-md">
+                <input
+                  id="input-password"
+                  name="password"
+                  type={ seePassword ? 'text' : 'password' }
+                  value={forms.password}
+                  onChange={handleChange}
+                  className="rounded-md focus:outline-none p-2 text-primary"
+                  onKeyUp={() => setShowError(false)}
+                />
+                <FaEye className={`${seePassword ? 'text-secondary' : 'text-primary'} cursor-pointer`}  onClick={ () => setSeePassword(!seePassword) }/>
+              </div>
               <p className={`${errorForms.password && showError ? '' : 'hidden'} text-secondary`}>
                 Password must have at least 6 characters
               </p>

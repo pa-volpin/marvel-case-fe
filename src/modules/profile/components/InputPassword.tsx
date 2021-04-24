@@ -1,13 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FaCheckCircle, FaTimesCircle, FaEdit } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { IApplicationState } from '../../../state/ducks';
 import { IProfilePayloadPostChangePassword } from '../state/types';
 import { changePassword } from '../state/actions';
 import { isEmpty } from 'lodash';
+import { FaEye } from 'react-icons/fa';
 
 const InputPassword: React.FC = () => {
   const dispatch = useDispatch();
+  const [seeNewPassword, setSeeNewPassword] = useState(false);
+  const [seeOldPassword, setSeeOldPassword] = useState(false);
   const [forms, setForms] = useState({ oldPassword: '', newPassword: '' });
   const [errorForms, setErrorForms] = useState({ oldPassword: true, newPassword: true });
   const [showError, setShowError] = useState(false);
@@ -44,16 +47,19 @@ const InputPassword: React.FC = () => {
     <div className="flex flex-col space-y-1">
       <div className={`flex flex-col space-y-1 w-full ${!enable ? 'hidden' : ' mt-4'}`}>
         <label htmlFor="oldpass-ipt">Old Passoword</label>
-        <input
-          id="oldpass-ipt"
-          name="oldPassword"
-          type="password"
-          value={ forms.oldPassword }
-          disabled={ !enable }
-          onChange={ handleChange }
-          className="rounded-md focus:outline-none p-2 text-primary w-10/12"
-          onKeyUp={ () => setShowError(false) }
-        />
+        <div className="flex space-x-2 items-center justify-between bg-white pr-2 rounded-md w-10/12">
+          <input
+            id="oldpass-ipt"
+            name="oldPassword"
+            type={ seeOldPassword ? 'text' : 'password' }
+            value={forms.oldPassword}
+            onChange={handleChange}
+            disabled={ !enable }
+            className="rounded-md focus:outline-none p-2 text-primary"
+            onKeyUp={() => setShowError(false)}
+          />
+          <FaEye className={`${seeOldPassword ? 'text-secondary' : 'text-primary'} cursor-pointer`}  onClick={ () => setSeeOldPassword(!seeOldPassword) }/>
+        </div>
         <p className={`${showError && errorForms.oldPassword ? '' : 'hidden'} text-secondary`}>
           You should enter your current password
         </p>
@@ -61,16 +67,19 @@ const InputPassword: React.FC = () => {
       <div className="flex flex-col space-y-1 w-full">
         <label htmlFor="newpass-ipt">Passoword</label>
         <div className="flex space-x-2">
-          <input
-            id="newpass-ipt"
-            name="newPassword"
-            type="password"
-            value={ forms.newPassword }
-            disabled={ !enable }
-            onChange={ handleChange }
-            className="rounded-md focus:outline-none p-2 text-primary w-10/12"
-            onKeyUp={ () => setShowError(false) }
-          />
+          <div className="flex space-x-2 items-center justify-between bg-white pr-2 rounded-md w-10/12">
+            <input
+              id="newpass-ipt"
+              name="newPassword"
+              type={ seeNewPassword ? 'text' : 'password' }
+              value={forms.newPassword}
+              onChange={handleChange}
+              disabled={ !enable }
+              className="rounded-md focus:outline-none p-2 text-primary"
+              onKeyUp={() => setShowError(false)}
+            />
+            <FaEye className={`${seeNewPassword ? 'text-secondary' : 'text-primary'} cursor-pointer`}  onClick={ () => setSeeNewPassword(!seeNewPassword) }/>
+          </div>
           <div className="flex items-center justify-between">
             <FaEdit
               size={25}
