@@ -2,8 +2,8 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter, Link, RouteComponentProps } from 'react-router-dom';
 import history from '../../../state/History';
-import { clearState } from '../../../modules/auth/state/actions';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { clearState } from '../../../modules/auth/state/actions';
 
 const links = [
   {
